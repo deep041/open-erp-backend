@@ -1,31 +1,19 @@
-import { ForbiddenException, ValidationPipe } from '@nestjs/common';
+import { ForbiddenException } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import cookieParser from 'cookie-parser';
 import type { NextFunction, Request } from 'express';
-import { AppModule, ObserveInstrument } from './app.module';
+import { AppModule } from './app.module';
+import { configureApp } from './configure-app';
 
 async function bootstrap()
 {
-    const app = await NestFactory.create(AppModule, {
-        instrument: ObserveInstrument,
-    });
+    const app = await NestFactory.create(AppModule);
 
-    app.setGlobalPrefix('api/v1');
+    configureApp(app);
 
     app.enableCors({
         origin: ['http://localhost:4200'],
     });
-
-    app.useGlobalPipes(
-        new ValidationPipe({
-            whitelist: true,
-            forbidNonWhitelisted: true,
-            transform: true,
-        }),
-    );
-
-    app.use(cookieParser());
 
     const allowedOrigins = new Set([
         'http://localhost:4200',

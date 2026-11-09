@@ -125,6 +125,7 @@ export type InstalledModuleScalarFieldEnum = (typeof InstalledModuleScalarFieldE
 export const RefreshSessionScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
+  familyId: 'familyId',
   tokenHash: 'tokenHash',
   expiresAt: 'expiresAt',
   revokedAt: 'revokedAt',
