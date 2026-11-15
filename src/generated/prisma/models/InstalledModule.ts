@@ -244,7 +244,7 @@ export type InstalledModuleScalarWhereWithAggregatesInput = {
 export type InstalledModuleCreateInput = {
   id?: string
   moduleKey: string
-  version: string
+  version?: string
   enabled?: boolean
   installedAt?: Date | string
   organization: Prisma.OrganizationCreateNestedOneWithoutInstalledModulesInput
@@ -254,7 +254,7 @@ export type InstalledModuleUncheckedCreateInput = {
   id?: string
   organizationId: string
   moduleKey: string
-  version: string
+  version?: string
   enabled?: boolean
   installedAt?: Date | string
 }
@@ -281,7 +281,7 @@ export type InstalledModuleCreateManyInput = {
   id?: string
   organizationId: string
   moduleKey: string
-  version: string
+  version?: string
   enabled?: boolean
   installedAt?: Date | string
 }
@@ -390,7 +390,7 @@ export type InstalledModuleUncheckedUpdateManyWithoutOrganizationNestedInput = {
 export type InstalledModuleCreateWithoutOrganizationInput = {
   id?: string
   moduleKey: string
-  version: string
+  version?: string
   enabled?: boolean
   installedAt?: Date | string
 }
@@ -398,7 +398,7 @@ export type InstalledModuleCreateWithoutOrganizationInput = {
 export type InstalledModuleUncheckedCreateWithoutOrganizationInput = {
   id?: string
   moduleKey: string
-  version: string
+  version?: string
   enabled?: boolean
   installedAt?: Date | string
 }
@@ -444,7 +444,7 @@ export type InstalledModuleScalarWhereInput = {
 export type InstalledModuleCreateManyOrganizationInput = {
   id?: string
   moduleKey: string
-  version: string
+  version?: string
   enabled?: boolean
   installedAt?: Date | string
 }

@@ -69,7 +69,7 @@ model InstalledModule {
   id             String   @id @default(uuid()) @db.Uuid
   organizationId String   @map("organization_id") @db.Uuid
   moduleKey      String   @map("module_key")
-  version        String
+  version        String   @default("1.0.0")
   enabled        Boolean  @default(true)
 
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
